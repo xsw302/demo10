@@ -1,0 +1,18 @@
+mybatis-plus:
+  configuration:
+    #指定 MyBatis 应如何自动映射列到字段或属性。
+    # NONE 表示取消自动映射；PARTIAL 只会自动映射没有定义嵌套结果集映射的结果集。 FULL 会自动映射任意复杂的结果集（无论是否嵌套）。
+    #    auto-mapping-behavior: full
+    #是否开启自动驼峰命名规则（camel case）映射，即从经典数据库列名 A_COLUMN 到经典 Java 属性名 aColumn 的类似映射。
+    #原：mybatis.configuration.map-underscore-to-camel-case=true
+    map-underscore-to-camel-case: true
+  #    default-scripting-language: com.xtravel.persistence.mybatisplus.FyMybatisXMLLanguageDriver
+  #如果*Mapper.xml与Mapper接口不在同一个包下，则需要的主配置文件中配置mybatis.mapper-locations
+  #classpath*:  * 会扫描jar包里的xml文件
+  mapper-locations: classpath*:com/xtravel/dao/xml/*Mapper.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  type-aliases-package: com.xtravel.entity
+  global-config:
+    db-config:
+      #生成ID类型：数据库ID自增
+      id-type: INPUT
